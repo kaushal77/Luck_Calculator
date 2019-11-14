@@ -17,22 +17,22 @@ export default class Message extends Component {
 	render(){
 		let{message} = this.props;
 		if(this.props.lucky <= 4){
-			 message = "Bad Luck";
+			 message = "BAD LUCK";
 		}
 		else if(this.props.lucky >= 5 && this.props.lucky <= 7){
-			 message = "Good Luck";
+			 message = "GOOD LUCK";
 
 		}
 		else {
-			 message = "Excellent Luck";
+			 message = "EXCELLENT LUCK";
 		}
 		return (this.state.pops ?
 				<div className ="popup" 
 				>
 					<p>{message}</p>
-					<p><span role="img">&#128077;</span></p>
+					{message==="BAD LUCK" ? <span role="img" aria-labelledby="smile1">&#128532;</span>: message==="GOOD LUCK" ? <p><span role="img" aria-labelledby="smile">&#128077;</span></p> : <span role="img" aria-labelledby="smile2">&#128526;</span>} <br />
 					
-					<button className="place_d" onClick={this.tryagain} >Try Again</button>
+					<button className="place_d" style={{backgroundColor:"red",opacity:0.8,borderColor:"black"}} onClick={this.tryagain} >Try Again</button>
 				</div> : null
 			);
 	}

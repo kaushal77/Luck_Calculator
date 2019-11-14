@@ -11,7 +11,7 @@ class App extends Component {
       max:99,
       display:false,
       lucky:0,
-      count:0,
+      count:1,
       item:0,
      show:false,
      isDisabled:false,
@@ -58,7 +58,7 @@ class App extends Component {
 }
   load = (value)=>{
     if(value===1){
-    this.setState({count:0,lucky:0,display:false,unlucky:0})
+    this.setState({count:1,lucky:0,display:false,unlucky:0})
   }
   }
   
@@ -67,7 +67,7 @@ class App extends Component {
     this.setState({ number: this.generateNumber(this.state.min, this.state.max),display:false,count :this.state.count + 1 ,unlucky:this.state.count - this.state.lucky,isDisabled:false})
   }
   render(){
-    let {ans2,ans1,ans3,ans4,dis} = this.props;
+    let {ans2,ans1,ans3,ans4} = this.props;
     if(this.state.display){
        ans1 = this.generateNumber(this.state.min, this.state.max);
        if(ans1 === this.state.number){
@@ -92,18 +92,18 @@ class App extends Component {
        ans4 = '?';
       
     }
-   dis = true;
+   
 
   return (
     <div className="App">
     <header id="grid" className="App-header blurred-box">
     <h1 data-text="LUCK CALCULATOR">
-       LUCKALCULATOR
+       LUCK-ALCULATOR
     </h1>
-    <h8 style={{fontSize:15,color:"black",fontWeight:"bold"}}>Note: After selecting the box click on NEXT button for another attempt.</h8><br/>
+    <h2 style={{fontSize:15,color:"black",fontWeight:"bold"}}>Note: After selecting the box click on NEXT button for another attempt.</h2>
     <div className="outer_box" >
       <span className="a1">
-          <p className="place"> Total Attempts: {this.state.count}/10</p>
+          <p className="place">Total Attempt: {this.state.count}/10</p>
           <p className="place">Lucky: {this.state.lucky}</p>
           <p className="place">Unlucky: {this.state.unlucky }</p>
       </span>
